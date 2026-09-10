@@ -30,6 +30,12 @@ export const Route = createFileRoute('/gallery')({
           'Photos and clips from the boat: kids landing their first king, families limiting out together, solo anglers with chinook, coho, steelhead and sturgeon on Oregon rivers.',
       },
     ],
+    links: [
+      {
+        rel: 'canonical',
+        href: 'https://www.catchingchromeguideservice.com/gallery',
+      },
+    ],
   }),
 })
 

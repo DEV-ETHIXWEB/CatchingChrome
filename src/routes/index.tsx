@@ -31,6 +31,14 @@ const FAQ_LD = {
 
 export const Route = createFileRoute('/')({
   component: Home,
+  head: () => ({
+    links: [
+      {
+        rel: 'canonical',
+        href: 'https://www.catchingchromeguideservice.com/',
+      },
+    ],
+  }),
 })
 
 function Home() {
