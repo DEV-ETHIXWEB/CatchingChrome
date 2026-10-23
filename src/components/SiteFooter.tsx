@@ -28,8 +28,8 @@ export function SiteFooter() {
             />
           </a>
           <p className="max-w-xs text-center text-sm leading-relaxed text-cream/70 md:text-left">
-            Expert-guided fishing excursions on Oregon and the Pacific
-            Northwest&apos;s most pristine waters.
+            Guided salmon, steelhead, sturgeon and Dungeness crab trips on the
+            Columbia River and Oregon coastal rivers.
           </p>
           <div className="flex items-center gap-3">
             {SOCIALS.map(({ Icon, label, href }) => (

@@ -21,7 +21,7 @@ export const BUSINESS_LD = {
   image: 'https://www.catchingchromeguideservice.com/brand/og-image.png',
   logo: 'https://www.catchingchromeguideservice.com/brand/logo.png',
   description:
-    "Expert-guided fishing excursions on Oregon and the Pacific Northwest's most pristine waters.",
+    'Guided salmon, steelhead, sturgeon and Dungeness crab trips on the Columbia River and Oregon coastal rivers. USCG-licensed captain, 40+ years, gear included.',
   areaServed: {
     '@type': 'State',
     name: 'Oregon',
