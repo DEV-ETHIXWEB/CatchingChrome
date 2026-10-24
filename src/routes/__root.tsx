@@ -29,7 +29,7 @@ export const Route = createRootRoute({
       {
         name: 'description',
         content:
-          'Guided salmon, steelhead, sturgeon and Dungeness crab trips on the Columbia River and Oregon coastal rivers. USCG-licensed captain, 40+ years, gear included.',
+          'Guided salmon, steelhead and sturgeon trips on the Columbia and Oregon coastal rivers, plus ocean Dungeness crab. USCG-licensed, 40+ years, gear included.',
       },
       { name: 'theme-color', content: '#0E2A3B' },
       { name: 'robots', content: 'index, follow' },
@@ -42,7 +42,7 @@ export const Route = createRootRoute({
       {
         property: 'og:description',
         content:
-          'Guided salmon, steelhead, sturgeon and Dungeness crab trips on the Columbia River and Oregon coastal rivers. USCG-licensed captain, 40+ years, gear included.',
+          'Guided salmon, steelhead and sturgeon trips on the Columbia and Oregon coastal rivers, plus ocean Dungeness crab. USCG-licensed, 40+ years, gear included.',
       },
       { name: 'twitter:card', content: 'summary_large_image' },
       {
@@ -52,7 +52,7 @@ export const Route = createRootRoute({
       {
         name: 'twitter:description',
         content:
-          'Guided salmon, steelhead, sturgeon and Dungeness crab trips on the Columbia River and Oregon coastal rivers. USCG-licensed captain, 40+ years, gear included.',
+          'Guided salmon, steelhead and sturgeon trips on the Columbia and Oregon coastal rivers, plus ocean Dungeness crab. USCG-licensed, 40+ years, gear included.',
       },
       { property: 'og:image', content: '/brand/og-image.png' },
       { name: 'twitter:image', content: '/brand/og-image.png' },

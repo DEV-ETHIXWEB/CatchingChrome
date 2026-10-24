@@ -21,7 +21,7 @@ export const BUSINESS_LD = {
   image: 'https://www.catchingchromeguideservice.com/brand/og-image.png',
   logo: 'https://www.catchingchromeguideservice.com/brand/logo.png',
   description:
-    'Guided salmon, steelhead, sturgeon and Dungeness crab trips on the Columbia River and Oregon coastal rivers. USCG-licensed captain, 40+ years, gear included.',
+    'Guided salmon, steelhead and sturgeon trips on the Columbia River and Oregon coastal rivers, plus Dungeness crab off the Oregon coast.',
   areaServed: {
     '@type': 'State',
     name: 'Oregon',
