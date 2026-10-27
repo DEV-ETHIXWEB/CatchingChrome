@@ -39,6 +39,44 @@ export const Route = createFileRoute('/articles/$slug')({
   component: ArticlePage,
 })
 
+function faqLd(a: Article) {
+  const faq = a.body.find((b) => b.type === 'faq')
+  if (!faq || faq.type !== 'faq') return null
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.items.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') },
+    })),
+  }
+}
+
+/** Renders [anchor](url) links inside plain article text. */
+function Inline({ text }: { text: string }) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g)
+  return (
+    <>
+      {parts.map((part, i) => {
+        const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+        if (!m) return part
+        const external = /^https?:\/\//.test(m[2])
+        return (
+          <a
+            key={i}
+            href={m[2]}
+            {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            className="font-medium text-primary underline decoration-primary/35 underline-offset-4 transition-colors hover:decoration-primary"
+          >
+            {m[1]}
+          </a>
+        )
+      })}
+    </>
+  )
+}
+
 function articleLd(a: Article) {
   return {
     '@context': 'https://schema.org',
@@ -77,7 +115,9 @@ function Body({ blocks }: { blocks: Block[] }) {
                     className="flex gap-3.5 text-[17px] leading-relaxed text-ink/70"
                   >
                     <span className="mt-[0.7em] h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                    <span>{item}</span>
+                    <span>
+                      <Inline text={item} />
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -91,10 +131,57 @@ function Body({ blocks }: { blocks: Block[] }) {
                 {b.text}
               </blockquote>
             )
+          case 'img':
+            return (
+              <figure key={i} className="!my-10">
+                <img
+                  src={b.src}
+                  alt={b.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full rounded-2xl border border-ink/10 object-cover shadow-sm"
+                />
+                {b.caption && (
+                  <figcaption className="mt-3 text-center text-[12px] font-semibold uppercase tracking-[0.14em] text-ink/70">
+                    {b.caption}
+                  </figcaption>
+                )}
+              </figure>
+            )
+          case 'faq':
+            return (
+              <div key={i} className="!mt-6 divide-y divide-ink/10 rounded-2xl border border-ink/10 bg-white">
+                {b.items.map((f) => (
+                  <details key={f.q} className="group p-6">
+                    <summary className="flex cursor-pointer list-none items-start justify-between gap-6 font-display text-[1.05rem] uppercase leading-tight text-ink [&::-webkit-details-marker]:hidden">
+                      {f.q}
+                      <span className="mt-0.5 text-xl leading-none text-primary transition-transform duration-200 group-open:rotate-45">
+                        +
+                      </span>
+                    </summary>
+                    <p className="mt-4 text-[16px] leading-relaxed text-ink/70">
+                      <Inline text={f.a} />
+                    </p>
+                  </details>
+                ))}
+              </div>
+            )
+          case 'cta':
+            return (
+              <div key={i} className="!mt-10">
+                <a
+                  href={b.href}
+                  className="btn-primary group inline-flex items-center gap-2 px-8 py-3.5 text-[13px] font-semibold uppercase tracking-[0.14em]"
+                >
+                  {b.label}
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+              </div>
+            )
           default:
             return (
               <p key={i} className="text-[17px] leading-[1.8] text-ink/70">
-                {b.text}
+                <Inline text={b.text} />
               </p>
             )
         }
@@ -110,6 +197,7 @@ function ArticlePage() {
   return (
     <>
       <JsonLd data={articleLd(article)} />
+      {faqLd(article) && <JsonLd data={faqLd(article)!} />}
 
       <section className="relative -mb-px h-[58vh] min-h-[400px] w-full overflow-hidden bg-ink">
         <div className="absolute inset-0">
