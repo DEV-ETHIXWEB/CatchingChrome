@@ -190,6 +190,69 @@ function Chip({
   )
 }
 
+function ComingSoon() {
+  const topics = [
+    'Salmon run calendars',
+    'Steelhead and sturgeon field notes',
+    'Crabbing and family trip tips',
+    'What to bring and what to expect',
+  ]
+  return (
+    <div className="mt-12 overflow-hidden rounded-3xl border border-ink/10 bg-white">
+      <div className="grid lg:grid-cols-[1.1fr_1fr]">
+        <div className="p-8 sm:p-12 lg:p-14">
+          <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-ink/70">
+            <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+            New posts landing soon
+          </span>
+          <h3 className="mt-6 font-display text-[clamp(1.8rem,3vw,2.6rem)] uppercase leading-[0.95] text-ink">
+            The first articles are
+            <span className="block text-accent">being written</span>
+          </h3>
+          <p className="mt-5 max-w-lg text-[16px] leading-relaxed text-ink/70">
+            Captain Ryan is putting together field notes from the water. Check
+            back soon, or call and ask him directly about what is running.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a
+              href="/excursions"
+              className="btn-primary group inline-flex items-center gap-2 px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.14em]"
+            >
+              See Excursions
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+            <a
+              href="tel:5039369090"
+              className="btn-outline inline-flex items-center gap-2 px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.14em]"
+            >
+              Call (503) 936-9090
+            </a>
+          </div>
+        </div>
+
+        <div className="border-t border-ink/10 bg-cream/60 p-8 sm:p-12 lg:border-l lg:border-t-0 lg:p-14">
+          <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-ink/70">
+            On the way
+          </p>
+          <ul className="mt-6 space-y-5">
+            {topics.map((t) => (
+              <li
+                key={t}
+                className="flex items-center gap-4 border-b border-ink/10 pb-5 last:border-0 last:pb-0"
+              >
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ink text-cream">
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+                <span className="text-[15px] font-medium text-ink">{t}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function ArticlesPage() {
   const [category, setCategory] = useState<ArticleCategory | null>(null)
 
@@ -229,6 +292,10 @@ function ArticlesPage() {
               </p>
             </div>
 
+            {ARTICLES.length === 0 ? (
+              <ComingSoon />
+            ) : (
+              <>
             <div className="mt-10 flex flex-wrap gap-2.5">
               <Chip
                 on={category === null}
@@ -258,6 +325,8 @@ function ArticlesPage() {
                 ))}
               </div>
             </div>
+              </>
+            )}
           </div>
         </section>
 
