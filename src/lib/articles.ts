@@ -234,6 +234,171 @@ export const ARTICLES: Article[] = [
       { type: 'cta', label: 'Book your trip with Ryan', href: '/contact' },
     ],
   },
+  {
+    slug: 'oregon-dungeness-crab-season',
+    title: "Oregon Dungeness Crab Season: What's Open Right Now",
+    excerpt:
+      'Oregon Dungeness crab season right now: ocean crabbing is closed through Nov. 30, but bays are open. Here is what ODFW reports and the rules to know.',
+    category: 'Crabbing',
+    date: '2026-10-28',
+    readMins: 7,
+    image: '/crabpots.webp',
+    imageAlt:
+      'Two crabbers on a boat holding Dungeness crab beside blue crab pots on a misty Oregon bay',
+    body: [
+      {
+        type: 'p',
+        text: `If you are looking up Oregon Dungeness crab season this week, the answer comes in two parts. Ocean waters are closed to crabbing from October 16 through November 30. Bays, beaches, estuaries, tide pools, piers and jetties stay open all year, unless a toxin closure says otherwise.`,
+      },
+      {
+        type: 'p',
+        text: `Both facts come from ODFW's marine crabbing and clamming report, dated October 22. This post walks through that report and the state's other notices, so you know what to expect before you plan a trip or load the truck.`,
+      },
+      {
+        type: 'img',
+        src: '/crabpots.webp',
+        alt: 'Two crabbers on a boat holding Dungeness crab beside blue crab pots on a misty Oregon bay',
+        caption: 'Pots, gloves and a cooler filling up',
+      },
+      { type: 'h2', text: 'What is open for crabbing this week' },
+      {
+        type: 'p',
+        text: `Start with ODFW's [Crabbing and Clamming report](https://myodfw.com/recreation-report/crabbing-clamming-report). It says the ocean is closed to crabbing from October 16 to November 30, and that bays and the other inshore areas listed above are open year-round.`,
+      },
+      {
+        type: 'p',
+        text: `The Oregon Department of Agriculture tests for shellfish toxins and posts the results on its [shellfish closures page](https://www.oregon.gov/oda/food-safety/shellfish/pages/shellfish-closures.aspx). As of its October 19 update, sport crab harvest was open along the entire coast. Sport razor clamming was closed from the Washington border to the California border because of high domoic acid.`,
+      },
+      {
+        type: 'p',
+        text: `That razor clam closure does not apply to crab, but it is a good reminder that closures change. ODA says it tests at least twice a month, and reopening an area takes two consecutive results below the closure limit. Call the biotoxin hotline at 1-800-448-2474 before you harvest.`,
+      },
+      { type: 'h2', text: 'What crabbers are finding in the bays' },
+      {
+        type: 'p',
+        text: `ODFW's October 22 report includes port-by-port notes, and they are mixed. Tillamook was slow from both a boat and the dock. Netarts was fair from both. Newport was fair from a boat and good for red rock crab from the dock. Waldport was fair from a boat and slow from the dock. Charleston was fair from both.`,
+      },
+      {
+        type: 'p',
+        text: `Two notes from the same report help explain the numbers. Heavy rain can raise river flows and push crabs toward saltier ocean water, so bay crabbing can be less successful for a while. And many crabs right now are soft, recently molted males that are still filling with meat and hardening their shells.`,
+      },
+      {
+        type: 'p',
+        text: `Put together, that suggests patience more than panic. A slow dock report after a rainy week does not mean the crab are gone.`,
+      },
+      { type: 'h2', text: 'Boat or dock: why the difference matters' },
+      {
+        type: 'p',
+        text: `ODFW's port notes split the results into crabbing from a boat and crabbing from the dock, and the two often differ. At Newport, for example, boats were fair while the dock was good for red rock crab. At Waldport the pattern ran the other way around.`,
+      },
+      {
+        type: 'p',
+        text: `The reason is simple. A dock crabber works the water within reach of the pier. A boat can set pots on more ground and move them when a spot goes quiet. That flexibility is a big part of why a guided boat day can outfish a day on the dock, even when the dock report is slow.`,
+      },
+      {
+        type: 'p',
+        text: `Red rock crab is a different species from Dungeness, so a good red rock report at the dock does not tell you much about Dungeness. Read the notes closely before you decide what to expect.`,
+      },
+      { type: 'h2', text: 'The rules every crabber should know' },
+      {
+        type: 'p',
+        text: `ODFW's [Dungeness crab page](https://myodfw.com/crabbing-clamming/species/dungeness-crab) is clear on the biggest one: only male crab 5-3/4 inches or larger may be kept. Females may not be kept. Measure every crab before it goes in the cooler.`,
+      },
+      {
+        type: 'p',
+        text: `On licensing, ODFW says shellfish licenses are available for youth and adults 12 and older. Daily limits and gear limits are not spelled out on the pages I read, so check the permanent regulations on [eRegulations](http://www.eregulations.com/oregon/fishing/) or ask ODFW directly through its [contact page](https://myodfw.com/contact-us).`,
+      },
+      {
+        type: 'img',
+        src: '/crabcatch.webp',
+        alt: 'A white cooler packed with Dungeness crab on the deck of a boat',
+        caption: 'Bring a bigger cooler than you think you need',
+      },
+      { type: 'h2', text: 'A simple plan for your first crab day' },
+      {
+        type: 'ul',
+        items: [
+          `Check ODFW's weekly report and the ODA closures page in the week you plan to go. Conditions move quickly.`,
+          `Decide how you want to crab: from a dock or bank, or on a guided boat with pots.`,
+          `Get the right shellfish licenses sorted for everyone who needs one.`,
+          `Pack a big cooler, warm layers and rain gear.`,
+          `Measure every crab, return females, and keep only male crab that reach 5-3/4 inches.`,
+        ],
+      },
+      {
+        type: 'p',
+        text: `None of this is complicated, but the order matters. Skipping the closure check or turning up without a license is the easiest way to spoil a day.`,
+      },
+      { type: 'h2', text: 'Why late fall and winter are worth planning around' },
+      {
+        type: 'p',
+        text: `ODFW says fall and winter can be excellent times for crabbing and clamming. The ocean closure runs through November 30, so the plan for many people is simple: use the bays now, and look at ocean trips once the season reopens. Closures can change, so confirm the dates with ODFW before you book.`,
+      },
+      {
+        type: 'p',
+        text: `Crabbing is not the only fall option, either. If you want fish as well as shellfish, the Columbia coho bite is covered in our [Columbia River fishing report for October](/articles/columbia-river-fishing-report-october), and winter steelhead start entering rivers from November or December.`,
+      },
+      { type: 'h2', text: 'What a crab trip with Ryan looks like' },
+      {
+        type: 'p',
+        text: `A [crab trip](/dungeness-crab) is the most hands-on day Ryan runs. You help drop the pots, you help pull them, and you sort what comes up. There is no technique to master and no waiting on a single bite, which is why families like it.`,
+      },
+      {
+        type: 'ul',
+        items: [
+          `Pots, bait, gloves and handling are all provided.`,
+          `Bring a cooler with room in it. Guests routinely underestimate this.`,
+          `Dress warm, because the coast is cooler than inland, and wear a waterproof outer layer, because pulling pots is a wet job.`,
+          `Wear non-slip footwear.`,
+        ],
+      },
+      {
+        type: 'p',
+        text: `Crab trips start from $150 per person, with a $50 per person deposit to reserve your date. Details are on the [pricing page](/pricing). Crabbing windows are set by the state and shift from year to year, so Ryan will tell you exactly what is open on your dates when you call.`,
+      },
+      { type: 'h2', text: 'Check these before you go' },
+      {
+        type: 'ul',
+        items: [
+          `Read ODFW's weekly [Crabbing and Clamming report](https://myodfw.com/recreation-report/crabbing-clamming-report) for open areas and conditions.`,
+          `Check the ODA [shellfish closures page](https://www.oregon.gov/oda/food-safety/shellfish/pages/shellfish-closures.aspx) or call 1-800-448-2474 for toxin closures.`,
+          `Confirm limits and gear rules in the [Oregon fishing regulations](http://www.eregulations.com/oregon/fishing/).`,
+          `Make sure everyone who needs a shellfish license has one.`,
+        ],
+      },
+      { type: 'h2', text: 'Frequently asked questions' },
+      {
+        type: 'faq',
+        items: [
+          {
+            q: 'Is ocean crabbing open in Oregon right now?',
+            a: `No. ODFW's October 22 report says ocean waters are closed to crabbing from October 16 to November 30. Bays, beaches, estuaries, tide pools, piers and jetties are open all year unless closed for toxins.`,
+          },
+          {
+            q: 'Can I keep female Dungeness crab?',
+            a: `No. ODFW says only male crab 5-3/4 inches or larger may be kept, and females may not be kept.`,
+          },
+          {
+            q: 'How big does a Dungeness crab have to be to keep?',
+            a: `At least 5-3/4 inches, and it must be a male. Measure each crab before you keep it.`,
+          },
+          {
+            q: 'Do I need a license to go crabbing?',
+            a: `ODFW offers shellfish licenses for youth and adults 12 and older, and the [crab trip page](/dungeness-crab) says every participant needs the appropriate valid license. Ask Ryan if you are unsure what your group needs.`,
+          },
+          {
+            q: 'How do I check whether crab is safe to harvest?',
+            a: `Check ODA's [shellfish closures page](https://www.oregon.gov/oda/food-safety/shellfish/pages/shellfish-closures.aspx) or call the biotoxin hotline at 1-800-448-2474 before you harvest.`,
+          },
+          {
+            q: 'How much does a guided crab trip cost?',
+            a: `From $150 per person, with a $50 per person deposit. Pots, bait and handling gear are included. See the [pricing page](/pricing).`,
+          },
+        ],
+      },
+      { type: 'cta', label: 'Ask Ryan about a crab trip', href: '/contact' },
+    ],
+  },
 ]
 
 export function getArticle(slug: string): Article | undefined {
