@@ -17,7 +17,17 @@ export type Block =
   | { type: 'h2'; text: string }
   | { type: 'ul'; items: string[] }
   | { type: 'quote'; text: string }
-  | { type: 'img'; src: string; alt: string; caption?: string }
+  | {
+      type: 'img'
+      src: string
+      alt: string
+      caption?: string
+      /** Intrinsic size, so the browser reserves space before the file loads. */
+      width: number
+      height: number
+      /** Infographic with text in it: shown full width, never height-capped, and tappable to open full size. */
+      graphic?: boolean
+    }
   | { type: 'faq'; items: { q: string; a: string }[] }
   | { type: 'cta'; label: string; href: string }
 
@@ -71,6 +81,8 @@ export const ARTICLES: Article[] = [
         src: '/Gallery/opt/rsw_1280h_960-3-full.webp',
         alt: 'Sunrise over the Columbia River with guide boats scattered across calm water',
         caption: 'Where the day starts',
+        width: 1280,
+        height: 960,
       },
       { type: 'h2', text: 'The Columbia River fishing report for October, in plain English' },
       {
@@ -108,12 +120,6 @@ export const ARTICLES: Article[] = [
         text: `Captain Ryan's own Oregon salmon calendar rates coho as excellent in October and good in November. Coho are aggressive, acrobatic and a lot of fun on lighter gear, which is why they suit families and first-time anglers so well.`,
       },
       {
-        type: 'img',
-        src: '/Gallery/opt/20230929_091400-scaled-full.webp',
-        alt: 'Angler holding a coho salmon on the Columbia River with the Gorge hills behind',
-        caption: 'A silver in the Gorge',
-      },
-      {
         type: 'p',
         text: `A coho trip is also a good way to see how the day works before you commit to a bigger fish. Ryan handles the boat and the positioning. You handle the rod.`,
       },
@@ -149,6 +155,8 @@ export const ARTICLES: Article[] = [
         src: '/Gallery/opt/rsw_1280h_960-5-full.webp',
         alt: 'A family aboard the guide boat with rods set out behind it, waiting on the bite',
         caption: 'Rods out, waiting on the bite',
+        width: 1280,
+        height: 960,
       },
       {
         type: 'p',
@@ -167,6 +175,8 @@ export const ARTICLES: Article[] = [
         src: '/Gallery/opt/Screenshot_20240922_164012_Messages-full.webp',
         alt: 'A woman and two teenage boys at the boat ramp holding six coho salmon',
         caption: 'Six silvers and a very full cooler',
+        width: 1078,
+        height: 922,
       },
       {
         type: 'p',
@@ -186,6 +196,8 @@ export const ARTICLES: Article[] = [
         src: '/Gallery/opt/20200920_100218-scaled-full.webp',
         alt: 'A father and two young sons on the riverbank holding three salmon',
         caption: 'One dad, two boys, three fish',
+        width: 1153,
+        height: 2560,
       },
       {
         type: 'p',
@@ -256,9 +268,11 @@ export const ARTICLES: Article[] = [
       },
       {
         type: 'img',
-        src: '/crabpots.webp',
-        alt: 'Two crabbers on a boat holding Dungeness crab beside blue crab pots on a misty Oregon bay',
-        caption: 'Pots, gloves and a cooler filling up',
+        src: '/crabtrip.webp',
+        alt: 'A guest in a ball cap holding up two Dungeness crab on the deck of a boat under a blue sky',
+        caption: 'Two keepers, straight out of the pot',
+        width: 900,
+        height: 1600,
       },
       { type: 'h2', text: 'What is open for crabbing this week' },
       {
@@ -306,13 +320,15 @@ export const ARTICLES: Article[] = [
       },
       {
         type: 'p',
-        text: `On licensing, ODFW says shellfish licenses are available for youth and adults 12 and older. Daily limits and gear limits are not spelled out on the pages I read, so check the permanent regulations on [eRegulations](http://www.eregulations.com/oregon/fishing/) or ask ODFW directly through its [contact page](https://myodfw.com/contact-us).`,
+        text: `On licensing, ODFW says shellfish licenses are available for youth and adults 12 and older. Daily limits and gear limits are not spelled out on those ODFW pages, so check the permanent regulations on [eRegulations](https://www.eregulations.com/oregon/fishing/) or ask ODFW directly through its [contact page](https://myodfw.com/contact-us).`,
       },
       {
         type: 'img',
         src: '/crabcatch.webp',
         alt: 'A white cooler packed with Dungeness crab on the deck of a boat',
         caption: 'Bring a bigger cooler than you think you need',
+        width: 898,
+        height: 1599,
       },
       { type: 'h2', text: 'A simple plan for your first crab day' },
       {
@@ -362,7 +378,7 @@ export const ARTICLES: Article[] = [
         items: [
           `Read ODFW's weekly [Crabbing and Clamming report](https://myodfw.com/recreation-report/crabbing-clamming-report) for open areas and conditions.`,
           `Check the ODA [shellfish closures page](https://www.oregon.gov/oda/food-safety/shellfish/pages/shellfish-closures.aspx) or call 1-800-448-2474 for toxin closures.`,
-          `Confirm limits and gear rules in the [Oregon fishing regulations](http://www.eregulations.com/oregon/fishing/).`,
+          `Confirm limits and gear rules in the [Oregon fishing regulations](https://www.eregulations.com/oregon/fishing/).`,
           `Make sure everyone who needs a shellfish license has one.`,
         ],
       },
@@ -397,6 +413,132 @@ export const ARTICLES: Article[] = [
         ],
       },
       { type: 'cta', label: 'Ask Ryan about a crab trip', href: '/contact' },
+    ],
+  },
+  {
+    slug: 'oregon-winter-steelhead-fishing-guide',
+    title: 'Oregon Winter Steelhead Fishing Guide: What to Expect on the Water',
+    excerpt:
+      "Thinking about booking an Oregon winter steelhead fishing guide? Here's what the season, the coastal rivers, and a real day on the water look like.",
+    category: 'Steelhead',
+    date: '2026-10-29',
+    readMins: 5,
+    image: '/articles/winter-steelhead/cover.webp',
+    imageAlt:
+      'Illustration of a steelhead leaping on an Oregon coastal river at first light, with an empty drift boat, firs and winter rain',
+    body: [
+      {
+        type: 'p',
+        text: `Winter steelhead fishing is not an easy sell. The season runs through the coldest, wettest months of the year, and most trips start in the dark, long before the ramp parking lot fills up with anyone else. So why do so many anglers book an Oregon winter steelhead fishing guide every December anyway? Because a fresh winter fish on light tackle does something no other species in this river system does. It is never a numbers game. One good steelhead, hooked clean and fought all the way to the net, is the fish people are still describing to friends a year later.`,
+      },
+      { type: 'h2', text: 'Why anglers put up with the rain' },
+      {
+        type: 'p',
+        text: `Winter steelhead earn their reputation the hard way. A fish this size should not fight like this. Hook one on light tackle or a fly rod and it will take line hard, change direction mid-run, and jump when you least expect it. Pound for pound, it is the hardest fighting fish most Oregon anglers will ever hold a rod against, and it is why so many people keep coming back to the same cold rivers every winter.`,
+      },
+      {
+        type: 'p',
+        text: `December through April is also the quiet season on the water. The summer crowds are gone, the boat ramps sit empty, and a January morning on a coastal tributary can feel like you have the whole river to yourself.`,
+      },
+      {
+        type: 'img',
+        src: '/Gallery/opt/20150222_084405-scaled-full.webp',
+        alt: 'A smiling angler in a camo jacket holding a bright winter steelhead aboard a boat on a misty, tree-lined river',
+        caption: 'Mist on the water, steel on the line',
+        width: 1600,
+        height: 900,
+      },
+      { type: 'h2', text: 'When the season actually runs' },
+      {
+        type: 'p',
+        text: `Winter steelhead show up on Oregon's coastal tributaries from roughly December through April. ODFW puts winter-run timing a little wider, from November into April, and notes that Oregon's coastal streams are mostly winter-run.`,
+      },
+      {
+        type: 'p',
+        text: `These rivers rise and drop fast with the rain, sometimes overnight. Captain Ryan checks water levels a day or two before your trip and picks whichever tributary is actually fishable that week, running the lighter 18-foot Clackacraft where the water calls for it, rather than committing to one spot out of habit. That is a large part of what hiring a guide buys you on this trip: knowing which river is in shape this week, instead of driving out and hoping.`,
+      },
+      {
+        type: 'img',
+        src: '/articles/winter-steelhead/season-chart.webp',
+        alt: 'Chart showing winter-run steelhead in Oregon coastal streams from November to April, with the typical guided trip season from December to April',
+        width: 1800,
+        height: 904,
+        graphic: true,
+      },
+      { type: 'h2', text: 'Fly rod or light tackle, your call' },
+      {
+        type: 'p',
+        text: `Some anglers want a fly rod in their hands for this one. Others want to drift bait or hardware on light conventional gear. Both approaches work on the coastal rivers Catching Chrome fishes, and both give you a real shot at a winter fish. Just mention your preference when you book. Captain Ryan rigs the boat for your choice ahead of time, so there is no guessing or re-rigging once you are on the water.`,
+      },
+      { type: 'h2', text: 'Wild fish go back, hatchery fish go home' },
+      {
+        type: 'p',
+        text: `Some of the steelhead you hook on an Oregon coastal river will be wild, and in most coastal waters those go back in the water. Wild steelhead runs have been under real pressure for years, which is why release rules exist in the first place. [ODFW's steelhead page](https://myodfw.com/fishing/species/steelhead) is a good primer if you want the general picture before you go.`,
+      },
+      {
+        type: 'p',
+        text: `A hatchery fish, easy to spot by its missing adipose fin, is yours to keep where the river is open for hatchery harvest. It gets cleaned and bagged for you before you head home. Either way, every fish that comes aboard is handled carefully, and the ones headed back to the river go back fast, with as little time out of the water as possible.`,
+      },
+      {
+        type: 'img',
+        src: '/articles/winter-steelhead/wild-vs-hatchery.webp',
+        alt: 'Illustration comparing a wild steelhead with its adipose fin intact and a hatchery steelhead with the adipose fin removed',
+        width: 1800,
+        height: 1280,
+        graphic: true,
+      },
+      { type: 'h2', text: 'Is this your first trip with a guide?' },
+      {
+        type: 'p',
+        text: `Winter steelhead is the most technical trip Catching Chrome runs, and it is worth saying that plainly before you book. If you have never been fishing with a guide before, a [shad trip](/american-shad) or a [salmon run](/fall-chinook) in season is usually the better place to start, since both give you steady action without needing much technique.`,
+      },
+      {
+        type: 'p',
+        text: `Save steelhead for when you are ready to be tested. The anglers who book this trip tend to come back for it every winter, because the challenge is most of the appeal.`,
+      },
+      {
+        type: 'img',
+        src: '/articles/winter-steelhead/which-trip.webp',
+        alt: 'Comparison of American shad, fall Chinook and winter steelhead trips by season, skill level, pace of action and who each suits',
+        width: 1800,
+        height: 1040,
+        graphic: true,
+      },
+      { type: 'h2', text: 'What to bring' },
+      {
+        type: 'p',
+        text: `Pack for the weather you are actually fishing in, not the weather you wish you had. Real rain gear, not a windbreaker. Warm layers, with a spare pair of gloves tucked in a dry bag, because wet gloves ruin a morning fast. Non-slip, waterproof footwear for a boat deck in the rain. And bring a thermos. A cold January morning with hot coffee in hand is a different morning entirely.`,
+      },
+      {
+        type: 'img',
+        src: '/articles/winter-steelhead/packing-list.webp',
+        alt: 'Winter steelhead packing list beside a river illustration: rain gear, warm layers, spare gloves, waterproof boots, a thermos and an Oregon license with tags',
+        width: 1800,
+        height: 872,
+        graphic: true,
+      },
+      { type: 'h2', text: 'Booking a winter steelhead trip' },
+      {
+        type: 'p',
+        text: `Winter steelhead trips run $250 per person, with a $50 per person deposit to hold your date. Weather and river conditions are always the captain's call, made with safety first, and a trip that gets postponed comes with a rain check rather than a lost day.`,
+      },
+      {
+        type: 'p',
+        text: `Winter dates move fast once the rivers start producing, so if a January or February weekend is what you are after, it is worth calling ahead rather than waiting until the week of. [Check availability for a winter steelhead trip](/winter-steelhead) or look over [full pricing for every trip Catching Chrome runs](/pricing) before you book.`,
+      },
+      {
+        type: 'img',
+        src: '/Gallery/opt/FullSizeRender-full.webp',
+        alt: 'A bearded angler in a beanie holding a large winter steelhead in a drift boat on a cold river at dusk',
+        caption: 'Why we fish in January',
+        width: 1600,
+        height: 1200,
+      },
+      {
+        type: 'p',
+        text: `Captain Ryan has been fishing these rivers for over forty years, rain included. Book early, dress for the weather, and come find out why the die-hards never miss this season.`,
+      },
+      { type: 'cta', label: 'Book a winter steelhead trip', href: '/contact' },
     ],
   },
 ]

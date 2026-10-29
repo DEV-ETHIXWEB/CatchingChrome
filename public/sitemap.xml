@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>https://www.catchingchromeguideservice.com/articles</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -93,6 +93,12 @@
   <url>
     <loc>https://www.catchingchromeguideservice.com/articles/oregon-dungeness-crab-season</loc>
     <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.catchingchromeguideservice.com/articles/oregon-winter-steelhead-fishing-guide</loc>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

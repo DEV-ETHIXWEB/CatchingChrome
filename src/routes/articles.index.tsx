@@ -13,16 +13,20 @@ import {
   type ArticleCategory,
 } from '~/lib/articles'
 
+const ARTICLES_DESCRIPTION =
+  'Oregon fishing articles from Catching Chrome: salmon and steelhead seasons, crabbing guides, fishing reports, and what to expect on a guided trip.'
+
 export const Route = createFileRoute('/articles/')({
   component: ArticlesPage,
   head: () => ({
     meta: [
-      { title: 'Fishing Articles & Guides | Catching Chrome Guide Service' },
-      {
-        name: 'description',
-        content:
-          'Oregon fishing articles from Catching Chrome: salmon run calendars, steelhead, sturgeon and crabbing guides, and what to expect on a guided trip.',
-      },
+      { title: 'Oregon Fishing Articles & Guides | Catching Chrome' },
+      { name: 'description', content: ARTICLES_DESCRIPTION },
+      { property: 'og:url', content: 'https://www.catchingchromeguideservice.com/articles' },
+      { property: 'og:title', content: 'Oregon Fishing Articles & Guides | Catching Chrome' },
+      { property: 'og:description', content: ARTICLES_DESCRIPTION },
+      { name: 'twitter:title', content: 'Oregon Fishing Articles & Guides | Catching Chrome' },
+      { name: 'twitter:description', content: ARTICLES_DESCRIPTION },
     ],
     links: [
       {
@@ -78,7 +82,15 @@ function Meta({ article }: { article: Article }) {
   )
 }
 
-function Featured({ article }: { article: Article }) {
+function Featured({
+  article,
+  badge,
+  eager = false,
+}: {
+  article: Article
+  badge?: string
+  eager?: boolean
+}) {
   return (
     <Link
       to="/articles/$slug"
@@ -89,13 +101,15 @@ function Featured({ article }: { article: Article }) {
         <img
           src={article.image}
           alt={article.imageAlt}
-          loading="eager"
+          loading={eager ? 'eager' : 'lazy'}
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <span className="absolute left-5 top-5 rounded-full bg-cream/90 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-ink backdrop-blur-sm">
-          Latest
-        </span>
+        {badge && (
+          <span className="absolute left-5 top-5 rounded-full bg-cream/90 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-ink backdrop-blur-sm">
+            {badge}
+          </span>
+        )}
       </div>
 
       <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
@@ -261,10 +275,11 @@ function ArticlesPage() {
     [],
   )
   const visible = category ? sorted.filter((a) => a.category === category) : sorted
+  // The newest post in the current view is always featured, so a filter that
+  // matches one article shows a full-width card rather than a lone small one.
   const [first, ...rest] = visible
-  // The featured slot only makes sense for the unfiltered "latest" view.
-  const showFeatured = category === null && first
-  const grid = showFeatured ? rest : visible
+  const gridCols =
+    rest.length >= 3 ? 'sm:grid-cols-2 lg:grid-cols-3' : 'sm:grid-cols-2'
 
   const categories = CATEGORIES.filter((c) =>
     ARTICLES.some((a) => a.category === c),
@@ -275,7 +290,7 @@ function ArticlesPage() {
       <ArticlesHeader />
 
       <main>
-        <section className="theme-transition pop bg-cream pb-24 pt-24 md:pb-28 md:pt-28">
+        <section className="theme-transition pop bg-cream pb-20 pt-24 md:pb-24 md:pt-28">
           <div className="mx-auto max-w-[1440px] px-6 md:px-10">
             <Eyebrow label="The Journal" tone="dark" />
 
@@ -317,13 +332,25 @@ function ArticlesPage() {
             </div>
 
             <div className="mt-10 space-y-8">
-              {showFeatured && <Featured article={first} />}
+              {first && (
+                <Featured
+                  article={first}
+                  badge={category ? `Latest in ${category}` : 'Latest'}
+                  eager
+                />
+              )}
 
-              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {grid.map((a) => (
-                  <Card key={a.slug} article={a} />
-                ))}
-              </div>
+              {rest.length === 1 ? (
+                <Featured article={rest[0]} />
+              ) : (
+                rest.length > 1 && (
+                  <div className={`grid gap-8 ${gridCols}`}>
+                    {rest.map((a) => (
+                      <Card key={a.slug} article={a} />
+                    ))}
+                  </div>
+                )
+              )}
             </div>
               </>
             )}
